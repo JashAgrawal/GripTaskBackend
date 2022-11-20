@@ -3,7 +3,7 @@ import dependencyInjectorLoader from './dependencyInjector';
 import mongooseLoader from './mongoose';
 // import jobsLoader from './jobs';
 import Logger from './logger';
-import customers from '@/models/customers/customers';
+import customers from '../models/customers/customers';
 //We have to import at least all the events once so they can be triggered
 import './events';
 
