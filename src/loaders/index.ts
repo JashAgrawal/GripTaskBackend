@@ -32,7 +32,7 @@ export default async ({ expressApp }) => {
   //content will be added here ................
 
   // It returns the agenda instance because it's needed in the subsequent loaders
-  const { agenda } = await dependencyInjectorLoader({
+  const res = await dependencyInjectorLoader({
     mongoConnection,
     models: [
       customersModel,

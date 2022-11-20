@@ -2,7 +2,7 @@ import { Container } from 'typedi';
 // import formData from 'form-data';
 // import Mailgun from 'mailgun.js';
 import LoggerInstance from './logger';
-import agendaFactory from './agenda';
+// import agendaFactory from './agenda';
 import config from '@/config';
 
 export default ({ mongoConnection, models }: { mongoConnection; models: { name: string; model: any }[] }) => {
@@ -11,10 +11,10 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
       Container.set(m.name, m.model);
     });
 
-    const agendaInstance = agendaFactory({ mongoConnection });
+    // const agendaInstance = agendaFactory({ mongoConnection });
     // const mgInstance = new Mailgun(formData);
 
-    Container.set('agendaInstance', agendaInstance);
+    // Container.set('agendaInstance', agendaInstance);
     Container.set('logger', LoggerInstance);
     // Container.set('emailClient', mgInstance.client({ key: config.emails.apiKey, username: config.emails.apiUsername }));
     Container.set('emailDomain', config.emails.domain);
@@ -26,7 +26,7 @@ export default ({ mongoConnection, models }: { mongoConnection; models: { name: 
       throw error;
     };
     Container.set('throwError', throwError);
-    return { agenda: agendaInstance };
+    return { agenda: '' };
   } catch (e) {
     LoggerInstance.error('🔥 Error on dependency injector loader: %o', e);
     throw e;
